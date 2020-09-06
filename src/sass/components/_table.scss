@@ -5,6 +5,7 @@
 }
 
 .table__caption {
+  position: relative;
   padding: 15px 0 20px 25px;
   font-size: 24px;
   line-height: 28px;
@@ -27,4 +28,19 @@
 
 .table__row {
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.table__reset {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  border: none;
+  background-color: inherit;
+  appearance: none;
+  font-size: 16px;
+  line-height: 19px;
+  color: #888888;
+  align-items: baseline;
+  transform: translateY(-50%);
+  cursor: pointer;
 }
