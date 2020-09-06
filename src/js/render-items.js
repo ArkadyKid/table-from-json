@@ -24,9 +24,22 @@ export default (data, state) => {
 
   data.forEach((val) => {
     const trBody = document.createElement('tr');
-    const appendElement = (v) => {
+    trBody.classList.add('table__row');
+    const appendElement = (text) => {
       const td = document.createElement('td');
-      td.textContent = v;
+      const span = document.createElement('span');
+      if (!isNaN(text)) {
+        td.style.textAlign = 'right';
+      }
+      if (text === val.color) {
+        const colorBlock = document.createElement('span');
+        colorBlock.classList.add('table__color');
+        colorBlock.style.backgroundColor = val.color;
+        td.append(colorBlock);
+      }
+      td.classList.add('table__cell');
+      span.textContent = text;
+      td.append(span);
       trBody.append(td);
     };
 
@@ -35,7 +48,7 @@ export default (data, state) => {
     }
 
     if (state.name) {
-      appendElement(val.name);
+      appendElement(val.name.charAt(0).toUpperCase() + val.name.slice(1));
     }
 
     if (state.year) {

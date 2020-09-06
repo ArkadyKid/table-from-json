@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./css/main.css?ver=2">
+    <link rel="stylesheet" href="./css/main.css">
 </head>
 <body>
     <main class="app">
@@ -16,19 +16,19 @@
                 Pantone colors
                 <button class="table__reset"
                         type="reset">
-                    <img src="assets/icon-reset.svg"
-                         width="18"
-                         height="18"
-                         alt="reset">
-                    Reset
+                    <svg width="18"
+                         height="18">
+                        <use xlink:href="/assets/sprite.svg#icon_reset"></use>
+                    </svg>
+                    <span>
+                        Reset
+                    </span>
                 </button>
             </caption>
-            <thead>
-            </thead>
-            <tbody>
-            </tbody>
+            <thead></thead>
+            <tbody></tbody>
         </table>
     </main>
-<script src="./js/index.js?ver=2" type="module"></script>
+<script src="./js/index.js" type="module"></script>
 </body>
 </html>
