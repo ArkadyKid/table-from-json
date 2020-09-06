@@ -9,7 +9,8 @@
   "author": "Arkady Kidanov",
   "license": "ISC",
   "dependencies": {
-    "lodash": "^4.17.15"
+    "lodash": "^4.17.15",
+    "on-change": "^2.1.2"
   },
   "devDependencies": {
     "@babel/core": "^7.11.1",

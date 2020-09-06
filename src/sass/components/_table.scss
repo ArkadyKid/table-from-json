@@ -1,0 +1,30 @@
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.table__caption {
+  padding: 15px 0 20px 25px;
+  font-size: 24px;
+  line-height: 28px;
+  font-weight: 700;
+  text-align: left;
+}
+
+.table__head-cell,
+.table__cell {
+  padding: 10px;
+}
+
+.table__head-cell {
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  font-size: 12px;
+  font-weight: 400;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.table__row {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
