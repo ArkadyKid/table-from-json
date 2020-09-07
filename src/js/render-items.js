@@ -4,7 +4,7 @@ const hideHead = (val, state) => {
   const thead = document.querySelector('thead');
   const input = thead.querySelector(`[data-checkbox=${val}]`);
   const th = input.closest('th');
-  input.checked = null;
+  input.checked = true;
   if (state) {
     th.classList.remove('table__head-cell--hide');
   } else {
