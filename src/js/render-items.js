@@ -1,18 +1,16 @@
-import state from './state';
-
-const hideHead = (val, state) => {
+const hideHead = (key, value) => {
   const thead = document.querySelector('thead');
-  const input = thead.querySelector(`[data-checkbox=${val}]`);
+  const input = thead.querySelector(`[data-checkbox=${key}]`);
   const th = input.closest('th');
   input.checked = true;
-  if (state) {
+  if (value) {
     th.classList.remove('table__head-cell--hide');
   } else {
     th.classList.add('table__head-cell--hide');
   }
 };
 
-const renderResetButton = () => {
+const renderResetButton = (state) => {
   const resetButton = document.querySelector('button[type="reset"]');
   if (Object.values(state).includes(false)) {
     resetButton.classList.add('table__reset--active');
@@ -64,5 +62,6 @@ export default (data, state) => {
 
     tbody.append(trBody);
   });
-  renderResetButton();
+
+  renderResetButton(state);
 };

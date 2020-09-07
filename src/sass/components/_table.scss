@@ -71,3 +71,8 @@
 .table__head-cell--hide {
   display: none;
 }
+
+.table__head-cell:first-child,
+.table__head-cell:nth-child(3n) {
+  width: 10%;
+}
