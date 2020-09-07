@@ -51,6 +51,10 @@
   vertical-align: top;
 }
 
+.table__reset--active {
+  color: #0075FF;
+  fill: #0075FF;
+}
 .table__color {
   width: 16px;
   height: 16px;
@@ -62,4 +66,8 @@
 .table__head-cell input {
   vertical-align: top;
   margin-right: 4px;
+}
+
+.table__head-cell--hide {
+  display: none;
 }

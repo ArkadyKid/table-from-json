@@ -1,26 +1,29 @@
+import state from './state';
+
+const hideHead = (val, state) => {
+  const thead = document.querySelector('thead');
+  const input = thead.querySelector(`[data-checkbox=${val}]`);
+  const th = input.closest('th');
+  input.checked = null;
+  if (state) {
+    th.classList.remove('table__head-cell--hide');
+  } else {
+    th.classList.add('table__head-cell--hide');
+  }
+};
+
+const renderResetButton = () => {
+  const resetButton = document.querySelector('button[type="reset"]');
+  if (Object.values(state).includes(false)) {
+    resetButton.classList.add('table__reset--active');
+  } else {
+    resetButton.classList.remove('table__reset--active');
+  }
+};
+
 export default (data, state) => {
   const tbody = document.querySelector('tbody');
-  const thead = document.querySelector('thead');
-  thead.innerHTML = '';
   tbody.innerHTML = '';
-
-  const trHead = document.createElement('tr');
-  const appendHead = (val) => {
-    const label = document.createElement('label');
-    const input = document.createElement('input');
-    const span = document.createElement('span');
-    const th = document.createElement('th');
-    label.for = val;
-    input.type = 'checkbox';
-    input.id = val;
-    input.dataset.checkbox = val;
-    span.textContent = val;
-    th.classList.add('table__head-cell');
-    label.append(input);
-    label.append(span);
-    th.append(label);
-    trHead.append(th);
-  };
 
   data.forEach((val) => {
     const trBody = document.createElement('tr');
@@ -43,48 +46,23 @@ export default (data, state) => {
       trBody.append(td);
     };
 
-    if (state.id) {
-      appendElement(val.id);
-    }
-
-    if (state.name) {
-      appendElement(val.name.charAt(0).toUpperCase() + val.name.slice(1));
-    }
-
-    if (state.year) {
-      appendElement(val.year);
-    }
-
-    if (state.color) {
-      appendElement(val.color);
-    }
-
-    if (state.value) {
-      appendElement(val.pantone_value);
-    }
+    Object.entries(state).forEach(([key, value]) => {
+      if (value) {
+        switch (key) {
+          case 'name':
+            appendElement(val[key].charAt(0).toUpperCase() + val.name.slice(1));
+            break;
+          case 'value':
+            appendElement(val.pantone_value);
+            break;
+          default:
+            appendElement(val[key]);
+        }
+      }
+      hideHead(key, value);
+    });
 
     tbody.append(trBody);
   });
-
-  if (state.id) {
-    appendHead('id');
-  }
-
-  if (state.name) {
-    appendHead('name');
-  }
-
-  if (state.year) {
-    appendHead('year');
-  }
-
-  if (state.color) {
-    appendHead('color');
-  }
-
-  if (state.value) {
-    appendHead('pantone_value');
-  }
-
-  thead.append(trHead);
+  renderResetButton();
 };
