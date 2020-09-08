@@ -1,5 +1,5 @@
 import state from './state';
-import renderItems from './render-items';
+import renderItems from './render';
 import handlers from './handlers';
 
 fetch('https://reqres.in/api/unknown?per_page=12')

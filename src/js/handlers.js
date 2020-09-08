@@ -1,5 +1,5 @@
 import onChange from 'on-change';
-import renderItems from './render-items';
+import renderItems from './render';
 import state from './state';
 
 const checkboxes = document.querySelectorAll('input[type="checkbox"]');

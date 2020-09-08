@@ -37,24 +37,24 @@
   border: none;
   padding: 10px;
   background-color: inherit;
-  appearance: none;
   font-size: 16px;
   line-height: 19px;
   color: #888888;
   align-items: baseline;
   transform: translateY(-50%);
-  cursor: pointer;
   fill: #888888;
+}
+
+.table__reset--active {
+  color: #0075FF;
+  fill: #0075FF;
+  cursor: pointer;
 }
 
 .table__reset span {
   vertical-align: top;
 }
 
-.table__reset--active {
-  color: #0075FF;
-  fill: #0075FF;
-}
 .table__color {
   width: 16px;
   height: 16px;
