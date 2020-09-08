@@ -7,6 +7,9 @@ const csso = require('gulp-csso');
 const imagemin = require('gulp-imagemin');
 const sourcemaps = require('gulp-sourcemaps');
 const webpackStream = require('webpack-stream');
+const posthtml = require('gulp-posthtml');
+const htmlMin = require('gulp-htmlmin');
+const include = require('posthtml-include');
 
 function bs(done) {
   browserSync.init({
@@ -38,7 +41,13 @@ function styles() {
 }
 
 function html() {
-  return gulp.src('src/index.html')
+  return gulp.src('src/*.html')
+    .pipe(posthtml([
+      include(),
+    ]))
+    .pipe(htmlMin({
+      collapseWhitespace: true,
+    }))
     .pipe(gulp.dest('dist'));
 }
 
