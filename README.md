@@ -1,12 +1,14 @@
-# Gulp template
-
-## Stack 
-Twig, Scss, Gulp, ESLint, Babel. Webpack
+# Table
 
 ## Install
 
 ````
-$ git init
-$ git clone git@github.com:ArkadyKid/gulp-template.git
+$ git clone git@github.com:ArkadyKid/table-from-json.git
 $ npm install
+````
+
+## Start
+
+````
+$ make start
 ````
